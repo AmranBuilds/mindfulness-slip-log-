@@ -105,25 +105,34 @@ function updateDashboard() {
     const catVal = categoryFilter.value;
     const now = new Date();
     
+    // Anchor current time to local midnight for accurate calendar day comparisons
+    const todayMidnight = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    
     // Filter data
     const filteredSlips = slips.filter(slip => {
-        const slipDate = new Date(slip.date);
+        // Fix: Parse YYYY-MM-DD strictly as a local date to prevent UTC offset errors
+        const [year, month, day] = slip.date.split('-');
+        const slipDate = new Date(year, month - 1, day);
+        
         let timeMatch = false;
         
         // Time filter logic
         if (timeVal === 'today') {
-            const month = String(now.getMonth() + 1).padStart(2, '0');
-            const day = String(now.getDate()).padStart(2, '0');
-            const todayText = now.getFullYear() + '-' + month + '-' + day;
+            const currentMonth = String(now.getMonth() + 1).padStart(2, '0');
+            const currentDay = String(now.getDate()).padStart(2, '0');
+            const todayText = now.getFullYear() + '-' + currentMonth + '-' + currentDay;
             timeMatch = slip.date === todayText;
         } else if (timeVal === 'week') {
-            const oneWeekAgo = new Date(now.getTime() - 7 * 24 * 60 * 60 * 1000);
+            const oneWeekAgo = new Date(todayMidnight);
+            oneWeekAgo.setDate(todayMidnight.getDate() - 7);
             timeMatch = slipDate >= oneWeekAgo;
         } else if (timeVal === 'month') {
-            const oneMonthAgo = new Date(now.getTime() - 30 * 24 * 60 * 60 * 1000);
+            const oneMonthAgo = new Date(todayMidnight);
+            oneMonthAgo.setDate(todayMidnight.getDate() - 30);
             timeMatch = slipDate >= oneMonthAgo;
         } else if (timeVal === 'year') {
-            const oneYearAgo = new Date(now.getTime() - 365 * 24 * 60 * 60 * 1000);
+            const oneYearAgo = new Date(todayMidnight);
+            oneYearAgo.setDate(todayMidnight.getDate() - 365);
             timeMatch = slipDate >= oneYearAgo;
         } else {
             timeMatch = true;
