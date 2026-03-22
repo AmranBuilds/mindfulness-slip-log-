@@ -2,7 +2,7 @@
 
 I designed this web application to track my mindfulness lapses as a part of my occupational therapy. The app runs entirely in your web browser. It does not use a database, it does not connect to any external APIs, and your data never leaves your device. The idea is for me to use it for a month or 3 and look at my slip patterns. I you choose to you can install it on your phone like an app (instructions below). 
 
-https://amranbuilds.github.io/mindfulness-slip-log-/
+https://amranbuilds.github.io/mindfulness-slip-log/
 
 ![QR Code](qr-code.png)
 
