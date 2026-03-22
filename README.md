@@ -1,6 +1,10 @@
 # mindfulness-slip-log-
 
-I designed this web application to track my mindfulness lapses as a part of my occupational therapy. The app runs entirely in your web browser. It does not use a database, it does not connect to any external APIs, and your data never leaves your device. The idea is for me to use it for a month or 3 and look at my slip patterns. 
+I designed this web application to track my mindfulness lapses as a part of my occupational therapy. The app runs entirely in your web browser. It does not use a database, it does not connect to any external APIs, and your data never leaves your device. The idea is for me to use it for a month or 3 and look at my slip patterns. I you choose to you can install it on your phone like an app (instructions below). 
+
+https://amranbuilds.github.io/mindfulness-slip-log-/
+
+![QR Code](qr-code.png)
 
 ## Features
 * **Secure Storage:** Saves all entries directly to your phone or computer's local browser storage.
@@ -16,7 +20,7 @@ Each entry tracks:
 3. **Situation:** The context of what you were doing.
 4. **Consequences:** What happened as a result.
 
-## How to Install on Your Phone
+## How to Install on Your Phone (Not required to run; you can just run it in your browser)
 This is a Progressive Web App (PWA). You can save it to your home screen like a normal app.
 
 **For iPhone (Safari):**
