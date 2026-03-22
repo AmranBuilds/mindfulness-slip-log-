@@ -13,7 +13,7 @@ https://amranbuilds.github.io/mindfulness-slip-log-/
 * **Dashboard Analytics:** View your slips by day, week, month, or year with simple visual charts.
 * **Category Filtering:** Sort your data by specific types of distractions.
 
-## Data Collected
+## Data Collected (On your device only; I do not get any of your data)
 Each entry tracks:
 1. **Date:** When it happened.
 2. **Slip Category:** What kind of slip it was (Speaking, Reading, Listening, Task Focus, Memory, Other).
@@ -42,4 +42,12 @@ This project is open source and available under the MIT License.
 
 ## Credits
 * Application icon designed and illustrated by Jennifer Leigh (@jennigma). https://www.jennigma.net/
+
+## Lessons Learned
+
+* **Progressive Web App (PWA) Caching:** Mobile browsers aggressively cache PWA files to save bandwidth. Deploying and testing code updates requires manually clearing site-specific data or using private browsing to bypass outdated scripts.
+* **iOS Icon Standards:** A standard `manifest.json` file is insufficient for Apple devices. An explicit `<link rel="apple-touch-icon" href="icon.png">` tag must be included in the HTML head for custom icons to render on an iOS home screen.
+* **Timezone Data Filtering:** Relying on default browser date parsing (UTC) causes local time discrepancies, making same-day entries disappear. Date filtering logic must strictly extract and compare string values (YYYY-MM-DD) to function accurately in the local timezone.
+* **UI Scaling Constraints:** Unbounded lists break mobile layouts as data accumulates. A CSS `max-height` boundary paired with `overflow-y: auto` is required to manage growing raw data logs without pushing the primary dashboard off-screen.
+* **AI Code Auditing:** AI-assisted development requires strict auditing of scope boundaries. Misplacing or deleting a single closing bracket `}` in JavaScript functions or CSS rules results in complete execution failure.
 
