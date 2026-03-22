@@ -112,7 +112,10 @@ function updateDashboard() {
         
         // Time filter logic
         if (timeVal === 'today') {
-            timeMatch = slipDate.toDateString() === now.toDateString();
+            const month = String(now.getMonth() + 1).padStart(2, '0');
+            const day = String(now.getDate()).padStart(2, '0');
+            const todayText = now.getFullYear() + '-' + month + '-' + day;
+            timeMatch = slip.date === todayText;
         } else if (timeVal === 'week') {
             const oneWeekAgo = new Date(now.getTime() - 7 * 24 * 60 * 60 * 1000);
             timeMatch = slipDate >= oneWeekAgo;
