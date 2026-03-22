@@ -40,3 +40,6 @@ This project is open source and available under the MIT License.
 
 **AI Disclosure:** This project was outlined and coded with the assistance of artificial intelligence. My programming skills are not at the level where I can do this all by meyslef. 
 
+## Credits
+* Application icon designed and illustrated by Jennifer Leigh (@jennigma). https://www.jennigma.net/
+
